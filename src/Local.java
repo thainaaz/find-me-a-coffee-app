@@ -39,9 +39,18 @@ public class Local {
         this.descricao = descricao;
     }
 
+    public void adicionarCaracteristica(Caracteristica c) {
+        caracteristicaList.add(c);
+    }
+    public List<Caracteristica> getCaracteristicaList() {
+        return caracteristicaList;
+    }
+
     @Override
     public String toString() {
-        return nome + "\n" + descricao + "\n" + linkMaps;
+        return "📍 " + nome + "\n"
+                + "📝 " + descricao + "\n"
+                + "🔗 " + linkMaps + "\n";
     }
 
 

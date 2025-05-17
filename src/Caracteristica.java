@@ -25,7 +25,7 @@ public class Caracteristica {
 
 // MOCK Características
 
-    public static List<Caracteristica> gerarMock() {
+    public static List<Caracteristica> mockCaracteristicas() {
         List<Caracteristica> lista = new ArrayList<>();
         lista.add(new Caracteristica("Pet friendly"));
         lista.add(new Caracteristica("Opções veganas"));
