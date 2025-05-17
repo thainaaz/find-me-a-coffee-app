@@ -19,18 +19,18 @@ public class Main {
                 "(E)coar e (e)levar a cultura do café especial brasileiro!\n" +
                         "☕\uFE0FFranquia de cafeterias - associada à ABF.\n" +
                         "\uD83C\uDF7D Estamos no iFood e com Take Away!");
-                novoLocal.adicionarCaracteristica(new Caracteristica("Coworking"));
+        novoLocal.adicionarCaracteristica(new Caracteristica("Coworking"));
 
 
         listaLocal.add(novoLocal);
 
-         novoLocal = new Local(
+        novoLocal = new Local(
                 "Quiero Café",
                 "https://g.co/kgs/RUSFRsf",
                 "Café - Restaurante - Bar\n" +
                         "\uD83D\uDE0B Opções para todos os gostos e todas as horas do dia!\n" +
                         "\uD83D\uDCCD 78 unidades espalhadas pelo Brasil");
-                 novoLocal.adicionarCaracteristica(new Caracteristica("Pet Friendly"));
+        novoLocal.adicionarCaracteristica(new Caracteristica("Pet Friendly"));
 
         listaLocal.add(novoLocal);
 
