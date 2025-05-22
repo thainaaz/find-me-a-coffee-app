@@ -7,12 +7,14 @@ public class Local {
     private String linkMaps;
     private String descricao;
     private List<Caracteristica> caracteristicaList;
+    private List <Avaliacao> avaliacaoList;
 
     public Local(String nome, String linkMaps, String descricao) {
         this.nome = nome;
         this.linkMaps = linkMaps;
         this.descricao = descricao;
         this.caracteristicaList = new ArrayList<>();
+        this.avaliacaoList = new ArrayList<>();
     }
 
     public String getNome() {
@@ -42,8 +44,12 @@ public class Local {
     public void adicionarCaracteristica(Caracteristica c) {
         caracteristicaList.add(c);
     }
-    public List<Caracteristica> getCaracteristicaList() {
-        return caracteristicaList;
+    public List<Caracteristica> getCaracteristicaList() { return caracteristicaList;}
+    public void adicionarAvaliacao(Avaliacao a) {
+        avaliacaoList.add(a);
+    }
+    public List<Avaliacao> getAvaliacaoList() {
+        return avaliacaoList;
     }
 
     @Override

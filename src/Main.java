@@ -56,7 +56,7 @@ public class Main {
         List<Local> listaLocal = gerarLocaisMock();
         List<Caracteristica> caracteristicasDisponiveis = Caracteristica.mockCaracteristicas();
 
-        int opcao;
+        int opcaoA;
 
         do {
             System.out.println("==== Menu ====");
@@ -66,10 +66,10 @@ public class Main {
             System.out.println("0. Sair");
             System.out.println("Escolha uma opção: ");
 
-            opcao = scanner.nextInt();
+            opcaoA = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcao) {
+            switch (opcaoA) {
                 case 1:
                     System.out.println("CADASTRO");
 
@@ -89,13 +89,31 @@ public class Main {
                     Usuario novoUsuario = new Usuario(nome, email, senha);
                     listaUsuarios.add(novoUsuario);
 
-                    System.out.println("Seja Bem vindo (a)! O que você deseja fazer? ");
+                    int opcaoA1;
+                        do {
+                            System.out.println("Seja Bem vindo (a)! O que você deseja fazer? ");
+                            System.out.println("1. Mostrar usuários criados");
+                            System.out.println("2. Criar outro usuário");
+                            System.out.println("0. Voltar ");
 
+                            opcaoA1 = scanner.nextInt();
+                            scanner.nextLine();
 
+                            switch (opcaoA1) {
+                                case 1:
+                                    System.out.println("1. Usuários criados: " );
+                                    for (Usuario usuario : listaUsuarios) {
+                                        System.out.println("Nome: " + usuario.getNome());
+                                        System.out.println("Email: " + usuario.getEmail());
+                                        System.out.println();
+                                    }
+                            }
+
+                        } while (opcaoA1 != 0);
                     break;
 
                 case 2:
-                    int opcaoSubmenu;
+                    int opcaoB;
                     do {
                         System.out.println("Encontrar um café");
                         System.out.println("1. Café mais próximo");
@@ -104,10 +122,10 @@ public class Main {
                         System.out.println("4. Coworking");
                         System.out.println("0. Voltar");
 
-                        opcaoSubmenu = scanner.nextInt();
+                        opcaoB = scanner.nextInt();
                         scanner.nextLine();
 
-                        switch (opcaoSubmenu) {
+                        switch (opcaoB) {
                             case 1:
                                 System.out.println("Cafés mais próximos:");
                                 for (Local local : listaLocal) {
@@ -171,10 +189,12 @@ public class Main {
                             default:
                                 System.out.println("Opção inválida. Tente novamente.");
                         }
-                    } while (opcaoSubmenu != 0);
+                    } while (opcaoB != 0);
                     break;
 
                 case 3:
+
+                    int opcaoC;
                     do {
                         System.out.println("Qual café deseja avaliar?");
                         for (int i = 0; i < listaLocal.size(); i++) {
@@ -182,15 +202,17 @@ public class Main {
                         }
                         System.out.println("0. Voltar");
 
-                        opcaoSubmenu = scanner.nextInt();
+                         opcaoC = scanner.nextInt();
                         scanner.nextLine();
 
-                        if (opcaoSubmenu >= 1 && opcaoSubmenu <= listaLocal.size()) {
-                            Local cafe = listaLocal.get(opcaoSubmenu - 1);
+                        if (opcaoC >= 1 && opcaoC <= listaLocal.size()) {
+                            Local cafe = listaLocal.get(opcaoC - 1);
                             System.out.println("Você esteve no " + cafe.getNome() + " recentemente e deseja avaliar esse local? Escolha uma das opções abaixo");
                             System.out.println("1. Pet Friendly");
                             System.out.println("2. Opções veganas");
                             System.out.println("3. Coworking");
+                            System.out.println("4. Escrever avaliação");
+
                             System.out.println("0. Cancelar");
 
                             int escolha = scanner.nextInt();
@@ -201,16 +223,28 @@ public class Main {
                                 cafe.adicionarCaracteristica(escolhida);
                                 System.out.println("Característica adicionada! O local possui essas características: ");
                                 System.out.println(cafe.getCaracteristicaList());
+                            } else if (escolha == 4 ) {
+
+                                System.out.println("Escreva sua avaliação: ");
+
+                                String textoAvaliacao = scanner.nextLine();
+                                Avaliacao avaliacao = new Avaliacao(textoAvaliacao);
+                                cafe.adicionarAvaliacao(avaliacao);
+                                System.out.println("Avaliação adicionada! O local possui essas avaliações: ");
+                                System.out.println(cafe.getAvaliacaoList());
+
+
+
                             } else if (escolha == 0) {
                                 System.out.println("Avaliação cancelada.");
                             } else {
                                 System.out.println("Opção inválida.");
                             }
-                        } else if (opcaoSubmenu != 0) {
+                        } else if (opcaoC != 0) {
                             System.out.println("Opção inválida.");
                         }
 
-                    } while (opcaoSubmenu != 0);
+                    } while (opcaoC != 0);
                     break;
 
 
@@ -222,7 +256,7 @@ public class Main {
                     System.out.println("Opção inválida. Tente novamente.");
             }
 
-        } while (opcao != 0);
+        } while (opcaoA != 0);
 
         scanner.close();
 
