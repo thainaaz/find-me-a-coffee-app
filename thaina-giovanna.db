@@ -1,0 +1,29 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "Avaliacao" (
+	"id"	INTEGER,
+	"descricao"	TEXT NOT NULL,
+	"local_id"	INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("local_id") REFERENCES "Local"("id")
+);
+CREATE TABLE IF NOT EXISTS "Caracteristica" (
+	"id"	INTEGER,
+	"nome"	TEXT NOT NULL,
+	"local_id"	INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY("local_id") REFERENCES "Local"("id")
+);
+CREATE TABLE IF NOT EXISTS "Local" (
+	"id"	INTEGER,
+	"nome"	TEXT NOT NULL,
+	"endereco"	TEXT NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+CREATE TABLE IF NOT EXISTS "Usuario" (
+	"id"	INTEGER,
+	"nome"	TEXT NOT NULL,
+	"email"	TEXT NOT NULL,
+	"senha"	TEXT NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+COMMIT;

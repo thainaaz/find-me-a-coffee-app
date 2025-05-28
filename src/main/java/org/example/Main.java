@@ -1,8 +1,11 @@
+import org.example.DatabaseInitializer;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
 
     public static boolean emailValido(String email) {
         return email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
@@ -50,6 +53,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // ------------------ DB ------------------ //
+        DatabaseInitializer.criarTabelas();
 
         Scanner scanner = new Scanner(System.in);
         List<Usuario> listaUsuarios = new ArrayList<>();
