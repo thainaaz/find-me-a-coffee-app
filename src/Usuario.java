@@ -14,7 +14,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
+        return "org.example.roles.Usuario{" +
                 "nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 '}';

@@ -1,3 +1,5 @@
+import org.example.roles.*;
+
 public class Avaliacao {
 
     private String avaliacao;
